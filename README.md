@@ -1,4 +1,4 @@
-Here’s a well-structured README.md file for Campus Connect AI (CAI):
+
 
 Campus Connect AI (CAI) 🚀
 
