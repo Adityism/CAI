@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>AI Chat Assistant</title>
+        <link rel="stylesheet" href="./static/css/global.css" />
+        <link rel="stylesheet" href="./static/css/caistyles.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./static/js/chat-handler.js"></script>
+        
+    </head>
+    <body>
+        <div class="chat-gpt">
+            <div class="overlap-wrapper">
+                <div class="overlap">
+                    <div class="side-menu">
+                        <div class="frame">
+                            <div class="div">
+                                <div class="frame-2">
+                                    <div class="name">
+                                        <div class="frame-3">
+                                            <img class="ellipse" src="static/images/aditya_pfp.png" />
+                                            <div class="group">
+                                                <div class="text-wrapper">Aditya</div>
+                                                <div class="text-wrapper-2">aditya.107195@stu.upes.ac.in</div>
+                                            </div>
+                                        </div>
+                                        <div class="group-wrapper" id="theme-toggle"><img class="img" src="static/images/cai_img/9104141_sun_bright_brightness_light mode_icon 1.png" /></div>
+                                    </div>
+                                    <img class="line" src="static/images/cai_img/line-2.png" />
+                                </div>
+                                <div class="frame-4">
+                                    <div class="div-2" id="home-btn">
+                                        <img class="frame-5" src="static/images/cai_img/frame 27.png" />
+                                        <div class="div-wrapper"><div class="text-wrapper-3">Home</div></div>
+                                    </div>
+                                    <div class="saved-chats" id="saved-chats-btn">
+                                        <img class="frame-6" src="static/images/cai_img/frame 25.png" />
+                                        <div class="frame-7"><div class="text-wrapper-4">Saved Chats</div></div>
+                                    </div>
+                                    <div class="suggestion" id="suggestion-btn">
+                                        <img class="element-creative" src="static/images/cai_img/2799205_creative_idea_light_energy_power_icon 1.png" />
+                                        <div class="frame-8"><div class="text-wrapper-4">Suggestion</div></div>
+                                    </div>
+                                    <div class="all-conversation" id="all-conversation-btn">
+                                        <img class="element-conversation" src="static/images/cai_img/3671750_conversation_icon 1.png" />
+                                        <div class="frame-9"><div class="text-wrapper-4">All Conversation</div></div>
+                                    </div>
+                                    <div class="div-2" id="tips-btn">
+                                        <div class="star-wrapper"><img class="star" src="static/images/cai_img/Frame 21.png" /></div>
+                                        <div class="tips-features-wrapper"><div class="text-wrapper-4">Tips &amp; Features</div></div>
+                                    </div>
+                                    <div class="updates-faqs" id="updates-btn">
+                                        <img class="img-2" src="static/images/cai_img/group.png" />
+                                        <div class="updates-faqs-wrapper"><div class="text-wrapper-4">Updates &amp; FAQs</div></div>
+                                    </div>
+                                    <div class="customization" id="customization-btn">
+                                        <img class="frame-10" src="static/images/cai_img/Frame 18.png" />
+                                        <div class="text-wrapper-5">Customization</div>
+                                    </div>
+                                    <div class="div-3" id="upgrade-btn">
+                                        <img class="img-2" src="static/images/cai_img/9036037_rocket_sharp_icon 1.png" />
+                                        <div class="frame-11"><div class="text-wrapper-5">Upgrade to Plus</div></div>
+                                    </div>
+                                    <div class="div-3" id="logout-btn">
+                                        <img class="frame-12" src="static/images/cai_img/Frame 17.png" />
+                                        <div class="frame-11"><div class="text-wrapper-5">Logout</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="new-chate-wrapper">
+                                <div class="new-chate" id="new-chat-btn">
+                                    <div class="frame-13">
+                                        <div class="overlap-group-wrapper">
+                                            <div class="overlap-group"><div class="text-wrapper-6">+</div></div>
+                                        </div>
+                                        <div class="text-wrapper-7">New Chat</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame-14">
+                        <div class="frame-15">
+                            <div class="group-2">
+                                <video class="video" src="static/videos/newlogo.mp4" autoplay loop muted></video>
+                                <div class="frame-16">
+                                    <div class="text-wrapper-8">What can I help with?</div>
+                                </div>
+                            </div>
+                            <div class="search">
+                                <div class="frame-wrapper">
+                                    <div class="frame-17">
+                                        <input id="user-query" class="search-for-anything" placeholder="search for anything" type="text" />
+                                        <img class="element-mic" id="mic-btn" src="static/images/cai_img/2205213_mic_microphone_record_speak_icon 1.png" />
+                                    </div>
+                                </div>
+                                <div class="group-3">
+                                    <div class="group-4">
+                                        <div class="element-send-icon-wrapper" id="send-btn">
+                                            <img class="element-send-icon" src="static/images/cai_img/8666611_send_icon 1.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="welcome-content" class="frame-18">
+                            <div class="group-5">
+                                <div class="frame-19">
+                                    <div class="group-6 example-box" data-query="What are today's announcements?">
+                                        <div class="overlap-group-2">
+                                            <p class="p">"What are today's announcements?"<br /></p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6 example-box" data-query="Where is Shubhi Ma'am's office?">
+                                        <div class="overlap-group-2">
+                                            <p class="p">"Where is Shubhi Ma'am's office?"</p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6 example-box" data-query="How do I make an HTTP request in JavaScript?">
+                                        <div class="overlap-group-2">
+                                            <p class="p">"How do I make an HTTP request<br />in JavaScript?''</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-wrapper"><img class="element-creative-2" src="static/images/cai_img/2799205_creative_idea_light_energy_power_icon 1.png" /></div>
+                                <div class="text-wrapper-9">Examples</div>
+                            </div>
+                            <div class="group-7">
+                                <div class="frame-20">
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="p">Remembers what user said<br />earlier in the conversation</p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="p">Allows user to provide follow-up<br />correction</p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="p">Trained to decline inappropriate<br />requests</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-wrapper">
+                                    <img class="element-bolt-energy" src="static/images/cai_img/5988474_bolt_energy_lightning_power_storm_icon 1.png" />
+                                </div>
+                                <div class="text-wrapper-10">Capabilities</div>
+                            </div>
+                            <div class="group-8">
+                                <div class="frame-20">
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="p">May occasionally generate<br />incorrect information</p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="p">May occasionally produce<br />harmful instructions or biased</p>
+                                        </div>
+                                    </div>
+                                    <div class="group-6">
+                                        <div class="overlap-group-2">
+                                            <p class="limited-knowledge-of">Limited knowledge of world and <br />events after 2021</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-wrapper">
+                                    <img class="element-warning" src="static/images/cai_img/9035550_warning_outline_icon 1.png" />
+                                </div>
+                                <div class="text-wrapper-11">Limitations</div>
+                            </div>
+                        </div>
+                        <div id="chat-content" class="chat-content" style="display: none; height: 80%; overflow-y: auto; padding: 20px; width: 100%;">
+                            <!-- Chat messages will be appended here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $(document).ready(function() {
+                let conversation = [];
+                let darkMode = false;
+                
+                // Handle send button click
+                $("#send-btn").click(function() {
+                    sendMessage();
+                });
+                
+                // Handle Enter key press in input field
+                $("#user-query").keypress(function(e) {
+                    if (e.which === 13) {
+                        sendMessage();
+                    }
+                });
+                
+                // Example boxes click handler
+                $(".example-box").click(function() {
+                    const query = $(this).data("query");
+                    $("#user-query").val(query);
+                    sendMessage();
+                });
+                
+                // Function to send message
+                function sendMessage() {
+                    const userMessage = $("#user-query").val().trim();
+                    if (userMessage === "") return;
+                    
+                    // Hide welcome content and show chat area
+                    $("#welcome-content").hide();
+                    $("#chat-content").show();
+                    
+                    // Append user message to chat
+                    $("#chat-content").append(
+                        `<div class="user-message" style="text-align: right; margin-bottom: 15px;">
+                            <div style="background-color: #0084ff; color: white; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 80%;">
+                                ${userMessage}
+                            </div>
+                        </div>`
+                    );
+                    
+                    // Clear input field
+                    $("#user-query").val("");
+                    
+                    // Scroll to bottom
+                    $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight);
+                    
+                    // Add loading indicator
+                    const loadingId = "loading-" + Date.now();
+                    $("#chat-content").append(
+                        `<div id="${loadingId}" class="ai-message" style="margin-bottom: 15px;">
+                            <div style="background-color: #f1f1f1; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 80%;">
+                                <div class="typing-indicator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>`
+                    );
+
+                    // Updated fetch with better error handling
+                    fetch('/api/query', {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            prompt: userMessage
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(err => {
+                                throw new Error(err.error || err.message || 'Unknown error occurred');
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Remove loading indicator
+                        $(`#${loadingId}`).remove();
+                        
+                        if (data.error) {
+                            throw new Error(data.error);
+                        }
+                        
+                        // Show response
+                        $("#chat-content").append(
+                            `<div class="ai-message" style="margin-bottom: 15px;">
+                                <div style="background-color: #f1f1f1; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 80%;">
+                                    ${data.response || "No response received"}
+                                </div>
+                            </div>`
+                        );
+                        
+                        // Scroll to bottom
+                        $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight);
+                    })
+                    .catch(error => {
+                        console.error("Error details:", error);
+                        
+                        // Remove loading indicator
+                        $(`#${loadingId}`).remove();
+                        
+                        // Show error message
+                        $("#chat-content").append(
+                            `<div class="ai-message" style="margin-bottom: 15px;">
+                                <div style="background-color: #ffebee; color: #c62828; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 80%;">
+                                    <strong>Error:</strong> ${error.message}<br>
+                                    Please ensure Ollama is running and try again.
+                                </div>
+                            </div>`
+                        );
+                        
+                        $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight);
+                    });
+                }
+                
+                // Theme toggle
+                $("#theme-toggle").click(function() {
+                    darkMode = !darkMode;
+                    if (darkMode) {
+                        $("body").addClass("dark-theme");
+                        $(this).find("img").attr("src", "static/images/cai_img/moon-icon.png");
+                    } else {
+                        $("body").removeClass("dark-theme");
+                        $(this).find("img").attr("src", "static/images/cai_img/9104141_sun_bright_brightness_light mode_icon 1.png");
+                    }
+                });
+                
+                // New chat button
+                $("#new-chat-btn").click(function() {
+                    conversation = [];
+                    $("#chat-content").empty().hide();
+                    $("#welcome-content").show();
+                });
+                
+                // Handle microphone click - speech recognition
+                $("#mic-btn").click(function() {
+                    if ('webkitSpeechRecognition' in window) {
+                        const recognition = new webkitSpeechRecognition();
+                        recognition.continuous = false;
+                        recognition.interimResults = false;
+                        
+                        recognition.onstart = function() {
+                            $("#mic-btn").css("filter", "brightness(0.7)");
+                        };
+                        
+                        recognition.onresult = function(event) {
+                            const transcript = event.results[0][0].transcript;
+                            $("#user-query").val(transcript);
+                        };
+                        
+                        recognition.onend = function() {
+                            $("#mic-btn").css("filter", "none");
+                        };
+                        
+                        recognition.start();
+                    } else {
+                        alert("Speech recognition is not supported in your browser");
+                    }
+                });
+                
+                // Side menu buttons functionality
+                $("#home-btn").click(function() {
+                    $("#chat-content").empty().hide();
+                    $("#welcome-content").show();
+                });
+                
+                // Simple alert for other menu buttons
+                $("#saved-chats-btn, #suggestion-btn, #all-conversation-btn, #tips-btn, #updates-btn, #customization-btn, #upgrade-btn").click(function() {
+                    const buttonText = $(this).find("div div").text();
+                    alert(buttonText + " feature coming soon!");
+                });
+                
+                $("#logout-btn").click(function() {
+                    if (confirm("Are you sure you want to logout?")) {
+                        window.location.href = "/logout";
+                    }
+                });
+            });
+        </script>
+        
+        <style>
+            /* Additional styles */
+            .typing-indicator {
+                display: flex;
+                align-items: center;
+            }
+            
+            .typing-indicator span {
+                height: 8px;
+                width: 8px;
+                background-color: #888;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 0 2px;
+                animation: bounce 1.5s infinite ease-in-out;
+            }
+            
+            .typing-indicator span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            
+            .typing-indicator span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+            
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-5px); }
+            }
+            
+            .dark-theme {
+                background-color: #1e1e1e;
+                color: #f1f1f1;
+            }
+            
+            .dark-theme .side-menu {
+                background-color: #2d2d2d;
+            }
+            
+            .dark-theme .frame-14 {
+                background-color: #1e1e1e;
+            }
+            
+            .dark-theme .group-6 {
+                background-color: #3d3d3d;
+            }
+            
+            .dark-theme .user-message div {
+                background-color: #0084ff;
+                color: white;
+            }
+            
+            .dark-theme .ai-message div {
+                background-color: #3d3d3d;
+                color: #f1f1f1;
+            }
+            
+            .dark-theme .search-for-anything {
+                background-color: #3d3d3d;
+                color: #f1f1f1;
+            }
+            
+            /* Making elements clickable */
+            .example-box, #send-btn, #mic-btn, #theme-toggle, #new-chat-btn, 
+            #home-btn, #saved-chats-btn, #suggestion-btn, #all-conversation-btn, 
+            #tips-btn, #updates-btn, #customization-btn, #upgrade-btn, #logout-btn {
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            
+            .example-box:hover, #send-btn:hover, #mic-btn:hover, #theme-toggle:hover, 
+            #new-chat-btn:hover, #home-btn:hover, #saved-chats-btn:hover, 
+            #suggestion-btn:hover, #all-conversation-btn:hover, #tips-btn:hover, 
+            #updates-btn:hover, #customization-btn:hover, #upgrade-btn:hover, #logout-btn:hover {
+                transform: scale(1.05);
+            }
+        </style>
+    </body>
+</html>
