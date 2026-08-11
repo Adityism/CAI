@@ -38,6 +38,10 @@ Campus Connect AI (CAI) is an intelligent assistant designed to streamline facul
 	•	Track academic progress and engagement statistics.
 	•	Get personalized insights on performance and improvement areas.
 
+## Automated project health
+
+CAI records a daily, offline project-health snapshot in [`reports/project-health.md`](reports/project-health.md). The scheduled workflow compiles the backend, inventories Flask and API routes, checks dependency hygiene, and appends the results to a CSV history. It intentionally does not call the hosted AI, Firebase, or OAuth services: those require credentials or a locally running Ollama model and would make CI results unreliable.
+
 🌗 Dark Mode Support
 	•	Switch between Light Mode and Dark Mode for a better user experience.
 
@@ -46,4 +50,3 @@ Campus Connect AI (CAI) is an intelligent assistant designed to streamline facul
 	•	Multilingual Support: Expand accessibility with multiple language options.
 	•	Integration with University Systems: Seamless login via student/faculty portals.
 	•	Mobile App Version: Native Android/iOS support for on-the-go access.
-

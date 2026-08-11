@@ -1,0 +1,40 @@
+name: Daily project health
+
+on:
+  schedule:
+    # 04:30 UTC / 10:00 IST. Scheduled workflows can be delayed, so this is
+    # intentionally away from the top of the hour.
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  record-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out CAI
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate offline health snapshot
+        run: python scripts/generate_health_report.py
+
+      - name: Commit updated health record
+        run: |
+          if git diff --quiet -- reports; then
+            echo "No health-report changes to commit."
+            exit 0
+          fi
+          # Use the repository owner's verified GitHub noreply address so the
+          # resulting default-branch commit is correctly attributed.
+          git config user.name "Aditya Goyal"
+          git config user.email "106709097+Adityism@users.noreply.github.com"
+          git add reports
+          git commit -m "chore(health): record daily CAI project health"
+          git push
