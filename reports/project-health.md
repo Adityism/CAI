@@ -2,8 +2,8 @@
 
 This generated snapshot records offline CI checks. It does not call Ollama, Hugging Face, Firebase, or Microsoft OAuth.
 
-Last run: `2026-09-04T08:57:00+00:00`  
-Source commit checked: `67a39ff`
+Last run: `2026-09-05T08:27:26+00:00`  
+Source commit checked: `524e69e`
 
 ## Checks
 
